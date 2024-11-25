@@ -1,8 +1,0 @@
-violence :
-    |-defense : 10 files
-    |-kick : 10 files
-    |-punch : 10 files
-non_violence :
-    |-sit : 10 files
-    |-standing : 10 files
-    |-walking : 10 files
