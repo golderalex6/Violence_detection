@@ -17,15 +17,12 @@ def features_extractor(audio,sample_rate):
     return mfccs_scaled_features
 
 audio = pyaudio.PyAudio()
-FORMAT = pyaudio.paInt16  
-CHANNELS = 1              
+FORMAT = pyaudio.paInt16
+CHANNELS = 1  
 RATE = 22050
 CHUNK = 1024
-RECORD_SECONDS = 3 
 stream = audio.open(format=FORMAT,channels=CHANNELS,rate=RATE,input=True,frames_per_buffer=CHUNK)
 
-
-print("Recording...")
 def update_plot(data,value):
     if value>0.5:
         value=1
@@ -42,7 +39,7 @@ try:
     plt.ion()
     while True:
         data = stream.read(CHUNK)
-        audio_data = np.frombuffer(data, dtype=np.int16)
+        audio_data=np.frombuffer(data, dtype=np.int16)
         audio_data=audio_data.astype(float)/32768.0
         extracted_features=features_extractor(audio_data,RATE)
         pred=model.predict(extracted_features.reshape(1,-1))[0]
