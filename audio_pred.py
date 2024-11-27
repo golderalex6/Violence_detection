@@ -48,9 +48,8 @@ try:
 
 except KeyboardInterrupt:
     print("Stopped recording.")
-finally:
-    stream.stop_stream()
-    stream.close()
-    audio.terminate()
-    plt.ioff()  
-    plt.show()
+stream.stop_stream()
+stream.close()
+audio.terminate()
+plt.ioff()
+plt.show()
