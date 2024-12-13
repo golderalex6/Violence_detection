@@ -13,15 +13,15 @@ if not os.path.exists(os.path.join(Path(__file__).parent,'encode')):
     os.mkdir(os.path.join(Path(__file__).parent,'encode'))
 
 #create audio_encode.json/video_encode.json for store label encode
-if not os.path.exists(os.path.join(Path(__file__).parent,'encode','audio_encode.json')):
-    open(os.path.join(Path(__file__).parent,'encode','audio_encode.json'),'a+').close()
+if not os.path.exists(os.path.join(Path(__file__).parent,'encode','audio.json')):
+    open(os.path.join(Path(__file__).parent,'encode','audio.json'),'a+').close()
 
-if not os.path.exists(os.path.join(Path(__file__).parent,'encode','video_encode.json')):
-    open(os.path.join(Path(__file__).parent,'encode','video_encode.json'),'a+').close()
+if not os.path.exists(os.path.join(Path(__file__).parent,'encode','video.json')):
+    open(os.path.join(Path(__file__).parent,'encode','video.json'),'a+').close()
 
 #create folder 'model' to store trainned model
-if not os.path.exists(os.path.join(Path(__file__).parent,'model')):
-    os.mkdir(os.path.join(Path(__file__).parent,'model'))
+if not os.path.exists(os.path.join(Path(__file__).parent,'models')):
+    os.mkdir(os.path.join(Path(__file__).parent,'models'))
 
 #create folder 'metadata' to store model hyper:q
 if not os.path.exists(os.path.join(Path(__file__).parent,'metadata')):
@@ -36,7 +36,7 @@ if not os.path.exists(os.path.join(Path(__file__).parent,'metadata')):
             'epochs':10,
             'batch_size':32
         }
-    with open(os.path.join(Path(__file__).parent,'metadata','audio_metadata.json'),'a+') as f:
+    with open(os.path.join(Path(__file__).parent,'metadata','audio.json'),'a+') as f:
         json.dump(audio_hyperparameters,f,indent=4)
 
     video_hyperparameters={
@@ -47,7 +47,7 @@ if not os.path.exists(os.path.join(Path(__file__).parent,'metadata')):
             'epochs':10,
             'batch_size':32
         }
-    with open(os.path.join(Path(__file__).parent,'metadata','video_metadata.json'),'a+') as f:
+    with open(os.path.join(Path(__file__).parent,'metadata','video.json'),'a+') as f:
         json.dump(video_hyperparameters,f,indent=4)
 
 #install dataset if passed argument
