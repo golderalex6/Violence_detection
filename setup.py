@@ -50,6 +50,15 @@ if not os.path.exists(os.path.join(Path(__file__).parent,'metadata')):
     with open(os.path.join(Path(__file__).parent,'metadata','video.json'),'a+') as f:
         json.dump(video_hyperparameters,f,indent=4)
 
+#Setup some parameter for both models.
+parameters = {
+        'n_mfcc':40
+    }
+
+with open(os.path.join(Path(__file__).parent,'parameters.json'),'a+') as f:
+    json.dump(parameters,f,indent=4)
+
+
 #install dataset if passed argument
 if len(sys.argv)==2:
     if sys.argv[1]=='dataset':
